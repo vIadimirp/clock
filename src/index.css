@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+html, body {
+    width: 100vw;
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Roboto", "sans-serif";
+}
+
+
+/* Main theme */
+/* :root { */
+html[data-theme="main"] {
+    --bg: linear-gradient(60deg, #ff5f5f, #7a5fff);
+    --text: #eee;
+    --text-2: #eeec;
+    --clock-bg: #fff2;
+    --secondsHand: #930000;
+    --regularHand: #ccc;
+    --clock-shadow: #0003;
+    --hand-shadow: #0005;
+}
+
+/* Dark theme */
+/* :root { */
+html[data-theme="dark"] {
+    --bg: #222;
+    --text: #eee;
+    --text-2: #eeec;
+    --clock-bg: #fff1;
+    --secondsHand: #b80000;
+    --regularHand: #ccc;
+    --clock-shadow: #0008;
+    --hand-shadow: #0008;
+}
+
+/* Light theme */
+/* :root { */
+html[data-theme="light"] {
+    --bg: #eaeaea;
+    --text: #222;
+    --text-2: #222c;
+    --clock-bg: #fff1;
+    --secondsHand: #b80000;
+    --regularHand: #222;
+    --clock-shadow: #0003;
+    --hand-shadow: #0005;
+}
+
+/* @media (prefers-color-scheme: light) {
+    :root {
+        
+    }
+} */

@@ -1,0 +1,35 @@
+div.numeralClock {
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    animation: numeralClockAppearAnimation 2s ease-in-out forwards;
+    z-index: 50;
+}
+
+div.numeralClock div.weekDay,
+div.numeralClock div.date {
+    font-size: 3em;
+    color: var(--text-2);
+}
+
+div.numeralClock div.time {
+    font-size: 6em;
+}
+
+
+@keyframes numeralClockAppearAnimation {
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+
+@media (max-aspect-ratio: 1) {
+
+    div.numeralClock * {
+        text-align: center;
+    }
+
+}

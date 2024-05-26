@@ -1,0 +1,135 @@
+div.circularClock {
+    /* font-size: min(calc(50vw / 23), calc(50vh / 23)); */
+    width: 23em;
+    height: 23em;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    animation: clockAppearAnimation 1s ease-in-out forwards;
+    z-index: 100;
+}
+
+
+div.circularClock div.face {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div.circularClock div.face * {
+    position: absolute;
+}
+
+div.circularClock div.face div {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 2em;
+}
+
+div.circularClock div.face div span {
+    line-height: 0;
+    font-size: 1.5em;
+    color: transparent;
+    scale: 0;
+    animation: faceSymbolAppearAnimation 0.5s ease-in-out forwards;
+}
+div.circularClock div.face div:nth-child(3n) span {
+    font-size: 2em;
+}
+
+
+div.circularClock div.center {
+    position: absolute;
+    border-radius: 50%;
+    z-index: 100;
+    width: 0;
+    height: 0;
+    background-color: transparent;
+    animation: centerAppearAnimation 0.5s ease-in-out forwards;
+}
+
+
+div.circularClock div.secondsHand,
+div.circularClock div.minutesHand,
+div.circularClock div.hoursHand {
+    --tail: 1em;
+    width: 0.2em;
+    height: 100%;
+    position: absolute;
+    border-radius: 100em;
+    z-index: 100;
+}
+
+div.circularClock div.secondsHand div,
+div.circularClock div.minutesHand div,
+div.circularClock div.hoursHand div {
+    width: 0.2em;
+    height: 0;
+    bottom: 50%;
+    position: absolute;
+    border-radius: 100em;
+    box-shadow: var(--hand-shadow) 0 0 0.5em;
+    animation: handAppearAnimation 1s ease-in-out 0.2s forwards;
+    background-color: var(--regularHand);
+}
+
+
+div.circularClock div.secondsHand {
+    width: 0.1em;
+}
+div.circularClock div.secondsHand div {
+    --length: calc(50% - 3.5em);
+    width: 0.1em;
+    background-color: var(--secondsHand);
+}
+div.circularClock div.minutesHand div {
+    --length: calc(50% - 5em);
+}
+div.circularClock div.hoursHand div {
+    --length: calc(50% - 7em);
+}
+
+
+@keyframes clockAppearAnimation {
+
+    to {
+        background-color: var(--clock-bg);
+        box-shadow: var(--clock-shadow) 0 0 5em;
+    }
+
+}
+
+@keyframes faceSymbolAppearAnimation {
+
+    to {
+        scale: 1;
+        color: var(--text);
+    }
+
+}
+
+@keyframes handAppearAnimation {
+
+    to {
+        height: calc(var(--length) + var(--tail));
+        bottom: calc(50% - var(--tail));
+    }
+
+}
+
+@keyframes centerAppearAnimation {
+
+    to {
+        width: 0.5em;
+        height: 0.5em;
+        background-color: var(--secondsHand);
+    }
+
+}
